@@ -1,0 +1,82 @@
+TONG KET NHANH GON VE DELEGATE -LUAT SU  = THAN CHU - DAI DIEN NOI GIUO, PHAT NGON GIUM
+				NICK-NAME = HAM-NAO-DO;
+						HAM-NAO-DO(...){...}
+
+				CON TRO, BIEN TRO DEN HAM NAO DO - HAM CO TEN KHAC NUA
+
+						CODE & HAM O TREN CO THE THAY BANG 
+							ANONYMOUS FUNCTION
+							LAMBDA EXPRESSION
+
+i. KHAI BAO DELEGATE - DUNG DE DAI DIEN CHO 1 NHOM HAM
+1. TU KHAI BAO DELEGATE RIENG
+> delegate void F(...);
+> delegate ??? F(...);
+	int, long, ...
+2. dung delegate co san cung cap boi .NET SDK
+> Action		Action<> 	Func<??, ?>		Predicate<?>
+void F()		void F(...)	? F(??)			bool F(?)
+			co generic	generic			generic, 1 DAU VAO
+
+II GAN GIA TRI CHO BIEN DELEGATE - DAT TEN CHO 1 HAM NAO DO, TAO DUNG CAU CHUYEN
+> Action f = Mot_Ham_Nao_Do;				//ko tra ve
+> Action<int> f = Mot_Ham_Nao_Do_Co_1_Dau_Vao_Int;	//ko tra ve
+> Func<int> f = Mot_Ham_Nao_Do_Co_Tra_ve_Int_Va_Ko_Dau_Vao; //co tra ve
+> Func<int, String> f = Mot_Ham_Nao_Do_Co_Tra_ve_String_Dau_Vao_Int;
+>Predicate<Student> f = Mot_Ham_Nao_Do_Co_Tra_ve_Bool_Dau_Vao_Student;
+
+> Action f = Anonymous_Function;
+	   = delegate () {...};//
+	   = () => {...};//lambda expression
+LUAT SU    = THAN CHU;
+
+//NHO KI NEU HAM AN DANH OR HAM LAMBDA CO THAM SO DAU VAO NHO PHAI GHI TRONG (???) =>
+	VI TA DANG BAN VE HAM CO DAU VAO
+
+*QUY TAC TOI UU RUT GON: () => VA THAN HAM =>{} TRONG KHI VIET BT LAMBDA - ANONYMOUS FUNCTION
+
+III RUN HAM, CHAY HAM, GOI HAM CHAY 1 CACH GIAN TIEP QUA NICK NAME, QUA LUAT SU UY QUYEN VA ACTION, KO GOI HAM TRUC TIEP, RIENG HAM AN DANH DA MAT TEN ROI.
+
+-> BIEN(THAM SO DUA VAO NEU CAN)
+	f(???);
+-> BIEN.Invoke(???);
+	f.Invoke(???);
+
+*KI HOP DONG - GAN NICKNAME
+-> XONG R MOI CALL, RUN, INVOKE 
+||||||||||||||||||||||||||||||||||||
+
+VII. DELEGATE IN USE/ACTION
+
+1. TRUYEN DELEGATE VAO TRONG 1 HAM KHAC
+void HamTraiBao(Action f)
+{
+...code
+tao lam gi vs f here?
+	GOI NO
+	f.Invoke();//call back
+		  //lap trinh ham -functional programming
+		  //ham minh choi lang voi cac ham ben ngoai
+		  //goi ham ben ngoai, ngoai lam gi ai biet
+		 // f co logic xu li ring, dc dua vao trong ham minh -> inject
+		  // dependency injection
+			//tao choi vs moi thu ben ngoai - loose coupling, flexible
+}
+***************************
+*****TA THIET KE 1 CAI HUB, 1 HAM DAU MOI, HAM STYLE DoOnDemand(yeu cau ben ngoai)
+CUNG CAP DINH VU LAM THEO YEU CAU CUA AI DO DUA DEN - HAM(CO CODE) DUA VAO HAM CHINH CUA TA
+NHAN THAU THEO YEU CAU, VAN SU TUY DUYEN, TA PHO MAC CHO CODE BEN NGOAI DUA VAO
+
+		[CODE BEN NGOAI XAI DC DATA BEN TRONG CUA TA]
+
+2. TRUYEN HAM CO DAU VAO VAO 1 HAM KHAC
+
+void DoOnDemand(Action<?> f)
+{
+	//goi f the nao
+	//f(); // an don!!, dua tham so vao cho thang f
+	f(5);
+}
+
+
+

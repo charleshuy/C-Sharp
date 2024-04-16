@@ -1,0 +1,677 @@
+DELEGATE
+
+0. REVIEW, OVERVIEW
+
+. KIEN TRUC 3 LAYER ARCHITECTURE CAI APP(KET QUA)- SOLUTION(QUA TRINH LAM
+* SOLUTION 
+PROJECT 1 UI (CONSOLE APP - .EXE .DLL MAIN()
+	      WINDOW FORM - .EXE .DLL MAIN()
+	      	
+PROJECT 2 REPOSITORIES  - CO SO DU LIEU
+		* CLASS LIBRARY .DLL
+		- ENTITIES
+			CLASS LIEN QUAN DEN TABLE, MAP XUONG TABLE CUA DATABASE
+		...\
+PROJECT 3 SERVICES - THAO TAC TREN DU LIEU TRONG RAM
+		* CLASS LIBRARY .DLL
+		-CLASS CHUA NHIEU OBJECT - CABINET, BOX, CONTAINER CLASS DANG THUNG CHUA
+		  > LIST<THU CAN LUU TRU, XU LY -ENTITIES>
+		  > CRUD METHODS
+
+* XAI MANG, LIST<???>
+* XAI GENERIC CABINET<???>
+* ADD REFERENCE TOI PROJECT CAN THIET - ADD DEPENDENCIES (CHECK COPY TO LOCAL)
+
+=====================================
+
+DATA TYPE		VALUE			VARIABLE
+						bien, dinh danh, nickname, identifier
+
+giai ma cong thuc : 
+1. CONG THUC #1 MOI LIEN HE CUA 3 THANH PHAN CUA BO 3 - GOC DO KHAI NIEM
+DATA TYPE	|	VALUE	->	VARIABLE
+		|	VALUE	->	VARIABLE
+		|	VALUE	->	VARIABLE
+2. CONG THUC #2 MOI LIEN HE CUA 3 THANH PHAN CUA BO 3 - GOC DO THUC THI
+int yob = 2003;
+int currentYear = 2024;
+Studdent s1 = new Student("SE1", "An", 2003, 8.2);//using constructor
+Studdent s2 = new Student(id : "SE1", name : "An", yob : 2003, gpa : 8.2);//named-argument
+Studdent s3 = new Student(){Id = "SE1", Name = "An", Yob = 2003, Gpa = 8.2};//object initialization
+
+-> hieu ve moi quan he cua 3 mon tren
+-> hieu dc DELEGATE LA GI?? TU DO HIEU DC CAC KHAI NIEM LIEN QUAN
+				- LAP TRINH HAM - FUNCTIONAL PROGRAMING
+				- DEPENDENCY INJECTION
+				- LINQ ~~~ STREAM API BEN JAVA
+				- ANONUMOUS FINCTION, LAMBDA EXPRESSION
+				- CALLBACK FUNCTION
+
+
+I. NGU PHAP TIENG VIET - DANH TU LA GI?
+1. DINH NGHIA DANH TU - LA 1 TU HAY VAI TU NOI VE 
+			LA 1 TU HAY VAI TU DE DAT TEN GOI CHO 1 THU, 1 SU VAT, HIEN TUONG SU KIEN NAO 					DO QUANH TA
+			
+ DANH TU CO 2 LOAI: DANH TU RIENG, DANH TU CHUNG
+
+2. DANH TU CHUNG
+* DINH NGHIA: LA NHUNG TU/ VAI THU DIEN TA KHAI NIEM CHUNG CHUNG, NOI VE 1 NHOM CA THU GI DO
+		LA TEN GOI CHUNG CHO 1 NHOM DOI TUONG, VALUE, VAT THE XUNG QUANH TA
+* VD: CAPITAL, NATION, PLANET, OCEAN, ROAD, HOUSE, PPL, DOG, ETC.
+	ELECTRONIC DEVICE, FOOD, DRINK, ITEM, PRODUCT
+
+3. DANH TU RIENG
+* DINH NGHIA: LA NHUNG TU MA DUNG DE GOI TEN, DAT TEN CHO, TEN GOI CUA 1 THU NAO DO QUANH TA
+		LA TEN, NICKNAME CHO 1 THU CU THE QUANH TA, DUNG DE PHAN BIET THU NAY VOI THU KHAC
+		XAC DINH RO RANG, DUY NHAT
+		DINH DANH - IDENTIFIER
+* VD: HA NOI, VIETNAM, ASIA, EUROPE, EARTH
+
+>>>> DANH TU CHUNG LA TEN GOI CHO 1 NHOM NHIEU THU
+>>>> DANH TU RIENG LA TEN GOI CHO 1 THU DUY NHAT NAO DO
+
+
+II. BO 3 HUYEN THOAI - DATA TYPE | VALUE | VARIABLE
+
+0.THING, THINGS, VAN VAT QUANH TA
+NHUNG GI XUAT HIEN QUANH TA THI GOI LA VAN VAT/THING,THINGS (IoT)
+VAN VAT QUANH TA, DEBVIU TA, TRONG NHAN THUC, CACH GOI, CACH MO TA CUA CON NGUOI THI CO 2 HINH THUC
+HINH THUC DON GIAN - HINH THUC PHUC TAP
+	MOI THU QUANH TA CO HINH GIANG LA GIA TRI DON  OR- GIA TRI PHUC TAP
+
+1. SIMPLE VALUE/SINGLE VALUE - GIA TRI DON/DON GIAN - VAT CO DINH GIANG DON GIAN
+-271  	1	0	5	10	20%  0.2    89111000220 TRUE FALL
+* DINH NGHIA: LA NHUNG CON SO, NHUNG DAI LUONG TRANG THAI NAO DO, HINH THUC THE HIEN DON GIAN VA NGAN GON
+
+
+
+
+2. COMPLEX VALUE | COMPOSITE VALUE | OBJECT VALUE | STRUCTURE/STRUCT VALUE
+   GIA TRI PHUC TAP, GIA TRI PHUC HOP
+NHUNG THU MA DO NHIEU THANH PHAN KHAC HOP LAI TAO THANH
+*DINH NGHIA
+*VI DU {GOM CAC INFO DE BIEU DIEN 1 DIEU GI DO CU THE, THING}
+{TUNG, 1994, THAI BINH, NHAC VIEN TP HCM}
+{CHI, 1993, HA NOI, RMIT}
+{LINH, 1988, HA NOI, .....}
+
+{EDSON ARANTES DO NASCIMENTO, 1940, BRASIL, ...}
+{LEONEL ANRE'S MESSI, 1987, ARGEBTINA...}
+{CHRISTIANO RONALDO DOS SANNTOS AVEIRO, 1985, PORTUGAL,...}
+
+3. QUAN LI CAC THINGS/SU VAT QUANH TA
+KHI QUANH TA CO QUA NHIEU INFO, NIEU VAT, SUVAT HIEN TUONG. TA CAN PHAI CO KI THUAT TO CHUC CHUNG, PHAN NHOM PHAN LOAI CHUNG, DAT TEN GOI THE NAO DE DE DANG NHAN DIEN, TIM KIEM, BAN LUAN,XU LI
+
+[[[[[  3.1. PHAN NHOM DU LIEU, PHAN NHOM DOI TUONG, PHAN LOAI ]]]]]
+-PHAN NHOM DU LIEU, PHAN LOAI DU LIEU, CHIA NHOM VALUE, CLASSIFY/CLASSIFICATION/CLASS
+LA HANH DONG SAP XEP GOM CAC VALUE RA 1 CHO RIENG CO NHUNG THU TUONG DONG VA CHO NHOM DO 1 CAI TEN
+
+------------------------------------------------------
+-271  	1	0	5	10	20%  0.2    89111000220 - DEU LA CON SO, DAI LUONG 1 NHOM SO, SO THUC - double, float [danh tu chung - DATA TYPE - TEN GOI 1 NHOM VALUE CHUNG HINH THUC]
+
+ TRUE FALL DAU/ROT -> 1 NHOM NOI VE 2 TRANG THAI NGUOC NHAU -> NHOM BOOL/BOOLEAN
+				[DANH TU CHUNG - DATA TYPE]
+-------------------------------------------------------
+
+-271  	1	0	5	10	 89111000220 - DAI LUONG CON SO NGUYEN. int, long, Interger
+
+20%  0.2   0.5 - dai luong con so co bi sut me: float, double
+
+TRUE FALL DAU/ROT -> bool/boolean
+----------------------------------------------------------
+
+
+{TUNG, 1994, THAI BINH, NHAC VIEN TP HCM}
+{CHI, 1993, HA NOI, RMIT}
+{LINH, 1988, HA NOI, .....}
+>>>>>>>>NHOM CASI, SINGER, class Singer
+
+
+{EDSON ARANTES DO NASCIMENTO, 1940, BRASIL, ...}
+{LEONEL ANRE'S MESSI, 1987, ARGEBTINA...}
+{CHRISTIANO RONALDO DOS SANNTOS AVEIRO, 1985, PORTUGAL, ...}
+>>>>>>>>> NHOM PLAYER, class Player
+
+-CACH CHIA NHOM, GOM NHOM , DAT TEN NHOM: TIEU CHI PHAN LOAI LA CON NGUOI LA DU, KO BAN NGHE NGHIEP
+-> NHOM PERSON, class person
+-> DU LIEU PHUC TAP TA CUNG PHAN LOAI VA DAT TEN THEO TIEU CHI NAO DO, CLASS/ENTITY - PHAN HANG DU LIEU PHUC TAP
+-> DANH TU CHUNG DUNG CHO VIEC DA TEN GOI NHOM DU LIEU DON GIAN, PHUC TAP -> TAO RA DATA TYPE
+
+CACH CHIA NHOM THU 2 THEO TIEU CHI NGHE NGHIEP
+
+
+[[[[[ 3.2 DAT TEN GOI CHO TUNG VALUE CU THE, TRONG CAI NHOM DA DAT TEN O 3.1, DINH DANH DOI TUONG, 		VALUE]]]]]]
+
+-271  	1	0	5	10	0.8%  0.2    89111000220
+x	y	z	g	grade	VAT	
+24000000		76000000	300000
+salary			salary(SA)	price
+exchangeRate
+
+DAU/ROT
+pass_mon
+
+{TUNG, 1994, THAI BINH, NHAC VIEN TP HCM} - sep
+{CHI, 1993, HA NOI, RMIT} - chipu
+{LINH, 1988, HA NOI, .....} - linh (camelCase)
+
+{EDSON ARANTES DO NASCIMENTO, 1940, BRASIL, ...} - king, pele'
+{LEONEL ANRE'S MESSI, 1987, ARGEBTINA...} - elpunga, m10
+{CHRISTIANO RONALDO DOS SANNTOS AVEIRO, 1985, PORTUGAL,...} - cr7
+
+
+***************************************
+1. CHOT HA: DATA TYPE KIEU DU LIEU LA TEN GOI DAI DIEN CHO 1 NHOM DU LIEU CO CHUNG DINH DANG, HINH THUC, DANH TU CHUNG
+	NOI VE DATA TYPE LA NOI VE RAT RAT NHIEU VALUE DONG DANG VA DC GOI CHUNG 1 CAI TEN
+	int, long, double, float, bool,boolean, char
+	
+	Person, Student, Lecturer, Singer, Dog, Cat, Beer, Game, Build, ....
+	***** NHAN DIEN CLASS CHINH LA TIM TEN GOI, DANH TU RIENG DANH TU CHUNG CHO 1 DAM CAC OBJECT MA SHARE CHUNG  DAC DIEM, HANH VI, CHUNG DINH DANG
+	****** GOC NHIN LUU TRU DATA XUONG DATABASE CHINH LA DI TIM CAC ENTITY - TEN THUC THE - ERD RA DOI
+
+2. CHOT HA #2: KHAIBAO BIEN LA CACH DAT TEN CHO 1 THU CU THE NAO DO QUANH TA: DON GIAN, PHUC TAP
+		THU DON GIAN NAY LA 1 VALUE THUOC VE 1 NHOM NAO DO - NHOM CHINH LA DATA TYPE
+3. CHOT HA #3: DATA TYPE LA TEN GOI CHUNG CHO CA DAM... 		DANH TU CHUNG
+				NHOM PHUC TAP CON GOI LA CLASS/ ENTITY
+		VARIABLE LA TEN GOI RIENG CHO TUNG DUA TRONG DAM	DANH TU RIENG
+
+4. DIEN GIAI CAU LENH DUOI DAY THEO STYLE BO 3 HUYEN THOAI		
+int	 	yob = 			2003;
+DATA TYPE	TEN GOI			VALUE CU THE
+TA NOI VE CAI RIENG 2003 YOB TRONG CAI CHUNG INT
+* TA NOI VE CAI NHUNG INT VA CO 1 CAI RIENG LA 2003 GOI LA YOB
+int 	salary =	 76.000;
+float 	pi = 	3.14;
+
+Player 			cr7 = 			{Christian.....}
+data type		variable		value cu the
+ta noi ve		trong do co		va thong tin cua cau thu do
+cac cau thu		1  ct goi
+noi chung		tat la cr7
+
+Player m10 = {Mess...}
+
+5. CHOT HA VE TEMPLATE KHAI BAO BIEN, KIEU DU LIEU VALUE - DECLARATION OF A VARUABLE & VALUE
+	DATA-TYPE VARUABLE-NAME = VALUE OF A SPECIFY  A UNIQUE/SPECIFIC VALUE/THING
+
+NEU VALUE PHUC TAP THI GOM INFO VAO {} HOAC () DE THANH 1 CUM COMPOSITE, 1 CUC INFO
+VALUE DON GIAN = LUON
+double grade = 10;
+
+Player m10 = {...};
+Payer m10 = new Player(){};
+
+
+
+
+============================================
+NGOAI TRUYEN - JSON - JAVASCRIPT OBJECT NOTATION
+	CACH BIEU DIEN THONG TIN CUA 1 DOI TUONG/ THU VALUE PHUC TAP
+	THEO STYLE TEXT DE DOC KE CA VOI NG NGOAI DAO, DUNG TRONG JAVASCRIPT
+
+{"Id" : "SE1", "Name" : "Son", "Yob" : 2003} 
+============================================
+
+>>>> Moi quan he giua bo 3 huyen thoai
+1 DATA TYPE CO NHIEU VALUE
+1 VALUE UNG VOI 1 BIEN NAO DO
+BIENCO THE DOI SANG VALUE KHAC
+
+III. DELEGATE - MIND SHIFT - SU DINH CHUYEN TRONG TU DUY, TRONG NHAN THUC
+0. 1ST SHIFT - GENERIC - LAN DAU TIEN TRAI THANH LONG CO TRONG MY TOM
+			PASS A DATA TYPE AS A PARAMETER, DUA "VALUE" CHO HAM KO LA VALUE NUA
+			MA LAI LA 1 DATA TYPE
+HAM TRUYEN THONG
+void AddItem(int n) 	void AddItem(Student s) 	void AddItem(Lecturer l)
+
+XAI HAM TRUYEN THONG
+   AddItem(5);		AddItem(new Student(){})	AddItem(new Lecturer(){})
+
+TUI BIET TRC CAN DUA VAO VALUE GI VAO HAM QUA PARAMETER
+   
+* HAM GENERIC - CO DEN 2 THU CAN DUA VAO
+void AddItem(<T> v)
+* XAI
+   AddItem(<Student> new Student(){})
+   AddItem(<int> 5)
+
+SAU KHI XAC DINH DC THI TA MOI DUA TIEP VALUE CUA KIEU DU LIEU DO
+-> 2 LAN DUA, DATA TYOE DC DUA VAO - GENERIC
+
+1. DELEGATE LA GI?? LA CACH DAT TEN NHOM CHO 1 DAM DU LIEU/ VALUE PHUC TAP, CLASS NAME
+		DAM VALUE PHUC TAP NAY LA DAM NAO, {...} HAY KO?
+		DI TIM DANH TU CHUNG CHO 1 DAM VALUE NAO DO, KHONG  PHAI VALUE DOIN GIAN, PHUC TAP NHU O TREN MA LA 1 THU PHUC TAP KHAC.
+		VAN LA DI TIM DATA TYPE CHO CAI DAM DO
+
+
+2ND MIND SHIFT - TA NHIN SOURCE CODE CUA TA ( DATA + METHOD, BIEN VA HAM)
+
+TA NHIN THAY CO RAT RAT NHIEU HAM (XU LI INFO/DATA) TRONG CAC FILE SOURCE
+VALUES: CAC HAM
+void SayHello(){....}
+void SayHelloToEveryone(){.....}
+void F1{...}
+
+void ComputePower(int n){...}//tinh mu 2 va in ra kq
+void ComputeSquareRoot(int n){...}//tinh can bac 2 va in ra kq
+void F2(int x){...}//tinh toan gi do va in ra kq
+
+int ComputePowerV2(){...}//tinh mu 2 tra ve kq
+int ComputeSquareRootV2(){...}//tinh can bac 2 lam tron tra ve kq
+int F2(){...}//tinh gi do tra ve kq
+
+int ComputePowerV2(int x){...}//tinh mu 2 tra ve kq
+int ComputeSquareRootV2(int n){...}//tinh can bac 2 lam tron tra ve kq
+int F2(int x){...}//tinh gi do tra ve kq
+
+
+DAT TEN NHOM CHO CAC HAM DONG DANG/ CUNG HINH DANG, TUONG DUONG, CUNG STYLE: INPUT/OUTPUT
+DATA TYPE DAI DIEN CHO NHIEU HAM/ HAM DC XEM LA VALUE!!! => TA CO QUYEN TRUYEN HAM VAO TRONG HAM KHAC QUA PARAMETER
+		LAP TRINH HAM XUAT HIEN - FUNCTIONAL PROGRAMING
+		CALL BACK FUNCTION XUAT HIEN
+
+void SayHello(){....}
+void SayHelloToEveryone(){.....}
+void F1{...}
+----------------------------------
+	X
+	VIET LAI CHO DEP, RO NGHIA KO VAO KO RA
+	delegate void X();
+	vietsub: X LA TEN CUA 1 NHOM HAM(VALUES) MA CO DAC DIEM CHUNG LA KO VAO KO RA
+
+
+void ComputePower(int n){...}//tinh mu 2 va in ra kq
+void ComputeSquareRoot(int n){...}//tinh can bac 2 va in ra kq
+void F2(int x){...}//tinh toan gi do va in ra kq
+-----------------------------------
+	Y
+	VIET LAI CHO DEP, RO NGHIA KO VAO KO RA
+	delegate void Y(int);
+	vietsub: y LA TEN CUA 1 NHOM HAM(VALUES) MA CO DAC DIEM CHUNG LA CO VAO KO RA
+
+int ComputePowerV2(){...}//tinh mu 2 tra ve kq
+int ComputeSquareRootV2(){...}//tinh can bac 2 lam tron tra ve kq
+int F2(){...}//tinh gi do tra ve kq
+-------------------------------------
+	Z
+	VIET LAI CHO DEP, RO NGHIA KO VAO KO RA
+	delegate int Z();
+	vietsub: y LA TEN CUA 1 NHOM HAM(VALUES) MA CO DAC DIEM CHUNG LA KO VAO CO RA
+
+int ComputePowerV2(int x){...}//tinh mu 2 tra ve kq
+int ComputeSquareRootV2(int n){...}//tinh can bac 2 lam tron tra ve kq
+int F2(int x){...}//tinh gi do tra ve kq
+-------------------------------------
+	ZZZ
+	VIET LAI CHO DEP, RO NGHIA KO VAO KO RA
+	delegate int ZZZ(int);
+	vietsub: y LA TEN CUA 1 NHOM HAM(VALUES) MA CO DAC DIEM CHUNG LA CO VAO CO RA
+
+
+
+int, long, float, double mang ro y nghia cua values no dai dien
+int: nhung thang so nguyen con
+fluat: so bi sut me
+Student: nhung thang dang di hoc, bac cao
+Employee: nhung values, ban dang ban minh cho tu ban
+Drink: nhung values, mon thuc uong
+X, Y, Z, ZZZ O TREN RO NGHIA CHUA?? PHAN BIET DC CHUA?? KO!!
+CACH DAT TEN NHU TREN CHUA RO RANG Y NGHIA, CAN GHI CHU RO HON VI TA CAN DEN 4 LOAI HAM KHAC NHAU
+
+DAT THE NAY NE MOI DUNG NE:
+
+X LA NHOM HAM KO NHAN VAO VA KO TRA RA 
+Y LA NHOM HAM NHAN VAO MA KO TRA RA
+Z LA NHOM HAM KO NHAN VAO MA TRA RA
+ZZZ LA NHOM HAM NHAN VAO TRA RA
+
+
+---> VIET GON HON CHO DEP
+delegate void X();
+delegate void Y(int);
+delegate int Z();
+delegate int ZZZ(int);
+
+KE TU DAY VE PHIA DUOI BAN CO THE DUNG X Y Z ZZZ NHU MOI DATA TYPE THONG THUONG
+NHU STUDENT, LECTURERE, DOG, CAT.....
+
+* X DAI DIEN CHO 1 NHOM HAM CO STYLE delegate void X(); - TUI MUON NOI VE 1 HAM CU THE NAO DO TRONG DAM SAU
+
+void SayHello(){....}
+void SayHelloToEveryone(){.....}
+void F1{...}
+-----------------------
+
+delegate void X();//TAO RA DATA TYPE TEN LA X DO LOAI VALUE QUA PHUC TAP, CO THUAT TOAN TRONG 										HAM/VALUE
+X f1 = BANG DC CAI HAM O TREN SayHello() la ngon
+
+VIETSUB: f1 LA 1 CAI HAM CO STYLE KIEU X TUC LA 1 HAM KO VAO KO RA, DANG void X()
+	VA CU THE HAM NAY LA HAM SayHello(), HOAC LA 1 HAM CU THE KHAC CUNG STYLE
+	f1 = ??? la xong
+	f1 dc goi la con tro ham vi no tro den 1 cai ham cu the
+	FUNCTION POINTER!!!!!!!!!!!!
+
+DATA-TYPE  BIEN = VALUE
+
+
+==================================
+IV CACH THE HIEN DINH NGHIA RA DATA TYPE CHO NHOM DU LIEU PHUC TAP {...} {...} void F(){...}
+
+1. DATA TYPE DU LIEU DON GIAN
+* DATA TYPE LA DANH TU CHUNG,TEN GOI CHUNG CHO 1 NHOMDU LIEU, THONG TIN DON GIAN MA DONG GIANG, CHUNG FORMAT
+int: 5,1,2,4,1,100000,-2 .......
+float: 0.1, 3.14, 12%, 3/2
+
+2. DATA TYPE DU LIEU PHUC TAP - KO PHAI LA HAM MA LA 1 DOI TUONG OBJECT NAO DO CO NHIEU INFO
+* DATA TYPE LA DANH TU CHUNG,TEN GOI CHUNG CHO 1 NHOMDU LIEU, THONG TIN PHUC TAP MA DONG GIANG, CHUNG FORMAT
+Person: {Ten..., Yob..., Noi sinh...} {Xuan Huy, 1999, Daklak}
+Singer: {Ten..., Yob..., Noi sinh..., Nick..., Hit...} {Thanh Tung, 1997, Thai Binh, SonTung MTP}
+Player: {Ten..., Ngay Sinh..., Noi Sinh..., Nick..., Number..., Goal..., Club..., Award...}
+{Messi, 1994...}
+
+Person, Singer, Player: nhom nguoi, nhom doi tuong co nhieu info => ENTITY(DATA BASE)
+								    CLASS(LAP TRINH)
+								    DATA TYPE: DANG DU LIEU
+
+Class: Su phan nhom, phan hang.
+>>>> CODE DE THE HIEN Y TUONG LUU TRU VA XU LY CAC INFO NGOAI DOI BANG COMPUTER 
+(ABSTRACTION - TRUU TUONG HOA - BIEU DIEN INFO NGOAI DOI THUC QUA MAY TINH, PERSON NGOAI DOI-> CLASS TRONG OOP)
+
+public class Person{//Java
+	private String id;
+	...
+}
+
+//DATA TYPE LA TEN CHUNG CHO RAT NHIEU OBJECT PHUC TAP {...}
+Public class Person			public class Person
+} //C#					{
+	private string _id;			public string Id { get; set;}// id co dc set public?
+	private string _name			public string Name { get; set;}
+	private int _yob			public string Yob { get; set;}
+
+
+}					
+//TAO RA DU LIEU -> BIEN DI KEM LA DANH TU RIENG, TEN TAT, NICK NAME CHO 1 OBJECT
+
+//Person an = {XXX, AN, 2003,...}
+Person an = new Person(...);//java
+Person an = new Person(){...}; //C# object initalizer - tao object dung ham set. 
+
+
+3. DATA TYPE DU LIEU PHUC TAP - LA NHIEU LOAI HAM, HAM CO: ?? F_NAME(??){...}
+						TEN HAM
+						TRA VE HAY KO
+						DAU VAO HAY KO
+						CODE BEN TRONG HAM DE XU LY INFO NOI CHUNG {...}
+* DATA TYPE LA DANH TU CHUNG,TEN GOI CHUNG CHO 1 NHOMDU LIEU, THONG TIN DON GIAN MA DONG GIANG, CHUNG FORMAT
+
+void SayHello() {...}
+void SendMessage() {...}
+
+delegate void FVoid();
+
+FVoid la ten goi chung cho 1 nhom ham dong giang: ko dau vao, ko tra ra, chi xu ly thong tin ben trong{...}
+
+NGAM TRONG CODE FVoid LA 1 CLASS, 1 NHOM PHUC TAP
+DATA TYPE CHO NHOM PHUC TAP, TEN NHOM PUC TAP CON GOI LA CLASS, CLASS PERSON, CLASS PET, CLASS PLANT...
+
+delegate void FVoid(); >>> FVoid LA 1 CLASS NHU STYLE PERSON, DOG, CAT, ...
+
+	
+public class [void X()] Delegate
+{
+    _fName// ten ham can luu
+    //vi X la ten chung cho nhieu ham
+   //nen X can 1 cho luu ten ham
+
+    //CONSTRUCTOR - 
+   public X(ten-ham-muon-luu-tru)
+   {
+      _fName = ten-ham-muon-luu-tru;
+   }
+   //GET, SET
+
+   public void Invoke() //ham co san khi tao class Delegate X nao do hoac tao theo style nhanh
+				//giong ToString() ke thua tu ong to Object - INHERITANCE OOP
+   {
+	_fName() //ten ham dc luu tru gui vao se dc run = cach them ()
+   }
+
+}
+==================
+>>>>> DAC BIET CHO CAI CLASS DAI DIEN CHO 1 NHOM HAM NAO DO, TA KO CAN PHAI MAT SUC THEO STYLE TRUYEN THONG
+
+delegate void X();  LA DU R, KO CAN DAI DONG
+		    LI DO: TA CHI CAN LUU TEN HAM, DAI DIEN CHO 1 NHOM HAM CUNG STYLE
+			 DAI DIEN HAM NAO CHI CAN NOI TEN LA DU R. QUA TEN HAM THI MO VAO XI LY
+			  NAM O {...}
+*********CODE NGAN GON CHO CAI CLASS DAI DIEN CHO NHOM HAM
+
+delegate STYLE-HAM TenChung();
+
+delegate void X(); //ham ko vao ko ra
+delegate void Y(int) //ham nhan int va ko ra
+delegate void YY(int, int) //nhan 2 int va ko ra
+delegate int Z()  //ko nhan vao nhung tra ra
+delegate int ZZ(int) // Nhan 1 vao tra ra
+
+
+NHOM HAM NHIEU - CLASS NHIEU
+CUNG NHU NHIEU CLASS: PERSON, PET, CAT....
+
+3.XAI DATA TYPE THI SAO??????
+* KHAI BAO BIEN > THUOC DATA TYOE > GAN VALUE = NEW(...){...};
+int     a = 10;
+Student x = new Student(...){...};
+X       f = new X(Ten-ham-cu-the-nao-do-co-o-dau-do); //dua ten ham cho tao, va goi la f
+X	f = new X(SayHello);
+
+KE TU NAY VE SAU CAI HAM CU THE NAO DO vi du HAM SayHello  DC GOI LA f
+f LA NICK NAME CUA HAM SayHello
+
+4. DELEGATE CLASS CO THEM 1 TRO DAC BIET - NO CO KHA NANG LUU NHIEU TEN HAM CUNG 1 LUC
+	MULTICAST DELEGATES
+
+public class [void X()] Delegate
+{
+    _fName// ten ham can luu
+    //vi X la ten chung cho nhieu ham
+   //nen X can 1 cho luu ten ham
+    List<> danh-sach-cac-ten-ham-cung-style
+    [] mang-cac-ten-ham-cung-style
+
+
+    //TUY LUC MINH GAN TEN HAM VAO BIEN F DELEGATE THI XE XAI DON HAM HAY DA HAM CUNG 1 LUC
+
+    //CONSTRUCTOR - 
+   public X(ten-ham-muon-luu-tru)
+   {
+      _fName = ten-ham-muon-luu-tru;
+   }
+   //GET, SET
+
+   public void Invoke() //ham co san khi tao class Delegate X nao do hoac tao theo style nhanh
+				//giong ToString() ke thua tu ong to Object - INHERITANCE OOP
+   {
+	_fName() //ten ham dc luu tru gui vao se dc run = cach them ()
+        List<> cac ham dc goi = cach them () tren tung ham de run
+   }
+	
+}
+
+HAM DAU += DE GHEP THEM TEN CAC HAM VAO DANH SACH DAI DIEN!!!! ()
+//KI THUAT OVERRIDE CAC OPERATOR, DINH NGHIA LAI CAC DAU + - * / THAY VI LAM TRONG TOAN HOC
+//GIO TOAN TRONG OBJECT
+
+
+REVIEW NHANH LAI VE DELEGATE - UY QUYEN, UY NHIEM, TRAO QUYEN, DAI DIEN, 1 BAN CLONE, 1 NICK NAME KHAC, 1 CACH GOI TEN KHAC, 1 CON TRO...
+
+1. DELEGATE LA 1 CLASS NHU CAC CLASS TRUYEN THONG, PERSON, DOG, CAT ...
+   DELEGATE LA CLASS NAME, LA TEN GOI CHUNG, DANH TU CHUNG DAI DIEN CHO NHIEU HAM CUNG 1 STYLE NAO DO
+   NO DUNG DE NOI VE 1 TAP HOP CAC HAM CUNG STYLE, THONG QUA NO CO THE BIEU DIEN/THAM CHIEU/NOI VE CAC HAM 
+   LA TEN GOI CHUNG TEN TAP HOP NHOM HAM
+
+  X LA TEN GOI CHO 1 NHOM HAM {F1() F2() F3()....}
+2. KHAI BAO VA SU DUNG DELEGATE: BO BA DAO, PHO, PIANO: DATA TYPE   TEN-BIEN = VALUE
+							TEN DELEGATE NICKNAME = TEN HAM CU THE NAO DO
+
+	delegate void X();
+	X f = new Delegate(ten-ham);
+	X f = new Delegate(TellHer);			void TellHer(){..}
+	  f --------------------------------------------->  TellHer
+	X f = TellHer; //viet ngan gon, new ngam
+	  f = NhanEm; //tro vao ham moi, tai 1 thoi diem bien luu 1 value
+	  f += SayToHer; // f dai dien cho nhieu than chu, nhieu ham : NhanEm + SayToHer
+		//MULTICAST DELEGATES
+  Goi ham:
+
+	f.Invoke();
+	f();	//f = TellHer => f() cung se la TellHer() chay ham thoy
+
+  DELEGATE: LA CACH DAT TEN CHO 1 HAM KHAC, 1 HAM CO SAN CO THEM 1 CAI NICKNAME, TEN MOI
+
+  F() CUNG NHU TELLHER()
+  LUAT SU NOI CUNG NHU THAN CHU NOI
+  
+  ========================
+   BAI TAP NANG CAO
+  - DO LAI CLASS KUKA DE TU NHIEN HON NUA
+  - KUKIA CO 1 HANH DONG RIENG LA : TakeMessage(message cua ai)
+  - KUKIA VAN CO HANH DONG MeetSweetHeart() = run 2 message kia
+
+
+====================================
+
+V. CAC BUOC, CONG THUC DE CHOI VOI DELEGATE
+*DINH NGHIA NHANH LAI DELEGATE
+-DELEGATE LA 1 LOAI CLASS DAC BIET - BAN CHAT LA 1 DATA TYPE NHU CAC LOAI DATA TYPE KHAC: int, long, double, Person, Pet.....
+-DELEGATE LA LOAI CLASS DAC BIET, DUNG DE LUU INFO DAC BIET: TEN HAM, TEN FUNCTION/METHOD
+
+-DELEGATE LA TEN GOI CHUNG CHO 1 NHOM HAM CUNG STYLE, CUNG DINH DANG, FORMAT(TYPE)
+
+-KHI TA CHOI VOI DELEGATE NGHIA LA GIUP 1 HAM BINH THUONG CO THEM 1 TEN GOI KHAC NUA, 1 TEN GOI THU 2 CHO HAM NAO DO. HAM CO THEM 1  TEN GOI KHA, VI LA TEN GOI KHAC NENCON GOI LATRO DEN HAM, CON TRO HAM
+
+-DELEGATE GIONG CAU CHUYEN: LUAT SU = THAN CHU, THAN CHU LA HAM GOC, UY QUYEN, TRAO QUYEN, UY NHIEM CHO LUAT SU
+
+-HAM CO 2 CACH GOI: GOI HAM GOC DE CHAY, GOI NICK NAME DE CHAY
+
+1. BUOC 1: KHAI BAO DELEGATE - TAO DATA TYPE CHUYEN DI SUU TAM LUU TRU TEN HAM
+	   KHAI BAO NGANG CAP, NGANG CO NGANG LEVEL VOI CLASSKHAC, INTERFACE KHAC
+	   CO THE XAI THEM: INTERNAL, PUBLIC, KO CAN PUBLIC, TUY
+* CU PHAP: 
+	delegate kieu-tra-ve-cua-ham Ten-delegate(tham-so-ham);
+* vi du: delegate void F();
+	public delegate void F(int x);
+	internal delegate int F();
+//thay int bang kieu data type tuong ung, ham co the co nhieu hon 1 tham so
+
+> F ke tu nay ve sau la 1 loai data type ngang co int, long, double, Student, Person, Pet....
+
+>>>>>>>>>>> KHUYEN DUNG: NEN DUNG DELEGATE CO SAN CUNG CAP BOI MICROSOFT VI DOTNET SDK THAY VO PHAI TU TAO RIENG NHUNG DELEGATE NHU KHAI BAO O TREN
+
+* CO 4 DATA TYPE - 4 DELEGATE NOI TIENG TRONG .NET - CHUAN HOA DAT TEN CAC DELEGATES:
+
+ Action 		Action<>	Func<>		Predicate<>
+void F()		Void F(???)	??? F(???)	bool F(?)
+
+>>>>>>>>>>>> TAO DATA TYPE
+
+2. BUOC 2: XAI DATA TYPE - KHAI BAO BIEN DUNG DE TRO HAM, 
+				LUU TEN HAM, LUU HAM CU THE NAO LUON
+		LUAT SU - THAN CHU
+		Data_type bien = value;
+
+*CONG THUC : Dta_Type_Delegate_Type_Ten_Nhom_Ham bien_tro_ham = HAM_NAP_DO_O_DAU_DO;
+
+>>>>>>>>>>>> KHUYEN DUNG: KHAI BAO NHU SAU:
+
+	Action f = HAM NAO DO.....;
+	Action<int> f = ..........;
+	Action<string, string> f = ............;ham nao do
+	Func<int> f = .....;
+	Func<double, double>
+	Predicate<double> f = ......;
+	predicare<Student> f = 
+	Student s1 = value nao do, sinh vien cu the nao do
+
+
+3. BUOC 3: GNA GIA TRI CHO BIEN DA KHAI BAO O BUOC 2 QUA TOAN DU DAU = (+= -=)
+	
+	TEN BIEN		= VALUE
+	BIEN LA TEN GOI CHO 1 VALUE CU THE NAM TRONG TAP DATA TYPE...
+
+	
+
+
+	delegate_type bien = 1 ten ham nao do cu the ngoai kia(ham goc co san - explicit);
+			   = ham nao do ngay day, ko them de ten, chi con code
+			 	chinh la dang xai anonymous function or lambda expression				
+	
+			nickname = ten ham goc;
+			  
+			  += TRO TOI NHIEU HAM, 1 NICK DAI DIEN NHIEU HAM
+				MULTICAST DELEGATES
+
+
+3.1 GAN GIA TRI CHO BIEN NICKNAME, BIEN LUAT SU = 1 HAM CU THE NAO DO
+
+	F f1 = TellHer;
+	int yob = 2003;
+	
+3.2 GAN GIA TRI CHO BIEN NICKNAME, BIEN LUAT SU = 1 HAM KO CO SAN
+						TAKE AWAY - KO CO SAN, KO CAN LUAN
+						ON THE GO
+						ANONYMOUS FUNCTION
+						LAMBDA EXPRESSION
+
+						RUT GON DU THUA TRONG VIEC GO LENH TAO HAM
+						BO TEN HAM, BO KI HIEU
+
+
+	F f1 = delegate(...){code cua ham);//VIP, ANONYMOUS
+	F f1 = (...) => {code cua ham);//LAMBDA EXPRESSION
+
+3.3 QUY TAC CHI CON CAI DAY NIT, QUY TAC TOI GIAN VIEC VIET HAM KHI CHOI VOI DELEGATE
+
+3.3.1 RUT GON THAM SO DAU VAO CUA HAM
+
+KO CO DAU VAO: () =>
+1 DAU VAO: (int x) =>	
+		x  =>
+2 DAU VAO TRO LEN: 
+	(int x, int y) =>
+	(x, y) =>	
+
+
+4. BUOC 4: GOI HAM QUA NICK NAME THAY VI GOI TRUC TIEP 
+
+int yob = 2003;
+Student s = new Student(..){...};
+F   f = HAM NAO DO;
+	ANONYMOUS FUNC;
+	LAMBDA EX
+				GAN CODE CHO BIEN
+
+
+GOI HAM DE CHAY
+	f(...);  // run ham qua nickname
+	f.Invoko(...);
+
+===================================
+BIEN BINH THUONG = GIA TRI; XONG
+int yob = 2003;
+Student s = new Student(..){...};
+
+BIEN DELEGATE = GIA TRI TEN HAM; HAM CU THE, ANONYMOUS FUNC, LAMBDA EX..
+GOI HAM DE RUN() GOI HAM GIAN TIEP QUA NICKNAME, UY QUYEN, UY NHIEM, UY THAC
+
+
+
+
+
+
+
+
+
+
+
