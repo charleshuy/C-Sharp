@@ -1,0 +1,14 @@
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\bin\Debug\net6.0\HelloCSharp.exe
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\bin\Debug\net6.0\HelloCSharp.deps.json
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\bin\Debug\net6.0\HelloCSharp.runtimeconfig.json
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\bin\Debug\net6.0\HelloCSharp.dll
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\bin\Debug\net6.0\HelloCSharp.pdb
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\HelloCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\HelloCSharp.AssemblyInfoInputs.cache
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\HelloCSharp.AssemblyInfo.cs
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\HelloCSharp.csproj.CoreCompileInputs.cache
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\HelloCSharp.dll
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\refint\HelloCSharp.dll
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\HelloCSharp.pdb
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\HelloCSharp.genruntimeconfig.cache
+C:\Users\patho\OneDrive\Desktop\Coding\PRN211\Session01-HelloWorld\HelloCSharp\obj\Debug\net6.0\ref\HelloCSharp.dll
